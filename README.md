@@ -1,7 +1,7 @@
 # What it is
 It is an experimental font forked from the classy font [Comic
 Shanns](https://github.com/shannpersand/comic-shanns) and inspired by the [Comic
-Mono](https://github.com/dtinth/comic-mono-font/blob/master/generate.py)
+Mono](https://github.com/dtinth/comic-mono-font/blob/master/generate.py)'s generate script
 
 ## Usage
 - Find your victim.
