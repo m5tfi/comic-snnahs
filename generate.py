@@ -7,13 +7,8 @@ based on -> Comic Mono generate.py:
 https://github.com/dtinth/comic-mono-font/blob/master/generate.py
 """
 
-import os
-import re
-import sys
-
 import fontforge
 import psMat
-import unicodedata
 
 
 def flip_glyphs():
@@ -21,11 +16,16 @@ def flip_glyphs():
     # I found it easier to just work with comic mono instead
     font = fontforge.open('comic-family/comic-mono.ttf')
 
+    glyph_original_width = list(font.glyphs())[0].width
+
     font.selection.all()
-    font.transform(psMat.scale(-1, 1))  # where magic happens
+    font.transform(psMat.scale(-1, 1))
+    font.transform(psMat.translate(glyph_original_width, 0))
+    for glyph in font.glyphs():
+        glyph.width = glyph_original_width
 
     font.familyname = 'Comic snnahS'
-    font.version = '0.0.1'
+    font.version = '0.0.2'
     font.comment = 'https://github.com/z3tr/comic-snnahs'
     font.copyright = 'https://github.com/m5tfi/comic-snnahs/blob/master/LICENSE'
 
